@@ -1,16 +1,14 @@
-import React from 'react'; // Import React (assuming you are using React)
-import './ExpenseItem.css';
+import React from 'react';
+import ExpenseDate from './ExpenseDate';
+import ExpenseDetails from './ExpenseDetails';
 
-function ExpenseItem(props) {
+const ExpenseItem = (props) => {
   return (
-    <div className='expense-item'> {/* Remove the dot (.) before 'expense-item' */}
-      <div>{props.date.toISOString()}</div> {/* Use 'date' instead of 'Date' */}
-      <div className='expense-item_description'>
-        <h2>{props.title}</h2> {/* Use 'props.title' instead of 'PaymentResponse.title' */}
-        <div className='expense-item_price'>${props.amount}</div>
-      </div>
+    <div className="expense-item">
+      <ExpenseDate date={props.date} />
+      <ExpenseDetails title={props.title} amount={props.amount} location={props.location} />
     </div>
   );
-}
+};
 
 export default ExpenseItem;

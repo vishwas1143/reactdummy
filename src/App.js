@@ -1,8 +1,7 @@
+import React from 'react';
+import ExpenseItem from './ExpenseItem';
 
-import React from 'react'; // Import React
-import ExpenseItem from '../src/components/ExpenseItem';
-
-function App() {
+const App = () => {
   const expenses = [
     {
       id: 'e1',
@@ -27,17 +26,16 @@ function App() {
   return (
     <div>
       <h2>Let's Get Started</h2>
-      {/* Use a loop to render ExpenseItem components */}
       {expenses.map((expense) => (
         <ExpenseItem
-          key={expense.id} // You should provide a unique key for each list item
+          key={expense.id}
           title={expense.title}
           amount={expense.amount}
           date={expense.date}
         />
       ))}
-    </div>
+      </div>
   );
-}
+};
 
 export default App;
