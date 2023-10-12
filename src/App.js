@@ -1,5 +1,5 @@
 import React from 'react';
-import ExpenseItem from './ExpenseItem';
+import ExpenseItem from './components/ExpenseItem';
 
 const App = () => {
   const expenses = [

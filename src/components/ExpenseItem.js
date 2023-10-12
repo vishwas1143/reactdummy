@@ -1,14 +1,26 @@
 import React from 'react';
 import ExpenseDate from './ExpenseDate';
-import ExpenseDetails from './ExpenseDetails';
+import './ExpenseItem.css';
 
-const ExpenseItem = (props) => {
+function ExpenseItem(props) {
+  const deleteExpense = () => {
+     console.log("button clicked");
+    const expenseItem = document.querySelector('.expense-item');
+    if (expenseItem) {
+      expenseItem.style.display = 'none';
+    }
+  };
+
   return (
-    <div className="expense-item">
+    <div className='expense-item'>
       <ExpenseDate date={props.date} />
-      <ExpenseDetails title={props.title} amount={props.amount} location={props.location} />
+      <div className='expense-item_description'>
+        <h2>{props.title}</h2>
+        <div className='expense-item-price'>${props.amount}</div>
+      </div>
+      <button onClick={deleteExpense}>Delete Expense</button>
     </div>
   );
-};
+}
 
 export default ExpenseItem;
