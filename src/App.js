@@ -1,5 +1,6 @@
 import React from 'react';
 import ExpenseItem from './components/ExpenseItem';
+import ExpenseForm from '../Expenses/ExpenseForm';
 
 const App = () => {
   const expenses = [
@@ -11,7 +12,7 @@ const App = () => {
     },
     {
       id: 'e2',
-      title: 'Tv',
+      title: 'TV',
       amount: 900,
       date: new Date(2021, 9, 20),
     },
@@ -25,7 +26,7 @@ const App = () => {
 
   return (
     <div>
-      <h2>Let's Get Started</h2>
+      
       {expenses.map((expense) => (
         <ExpenseItem
           key={expense.id}
@@ -34,7 +35,7 @@ const App = () => {
           date={expense.date}
         />
       ))}
-      </div>
+    </div>
   );
 };
 
