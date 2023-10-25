@@ -1,6 +1,7 @@
 import React from 'react';
 import ExpenseItem from './components/ExpenseItem';
-import ExpenseForm from '../Expenses/ExpenseForm';
+import ExpenseForm from './components/NewExpense/ExpenseForm';
+import NewExpense from './components/NewExpense/NewExpense';
 
 const App = () => {
   const expenses = [
@@ -27,6 +28,8 @@ const App = () => {
   return (
     <div>
       
+      <NewExpense/>
+      <expenses items={expenses}/>
       {expenses.map((expense) => (
         <ExpenseItem
           key={expense.id}
