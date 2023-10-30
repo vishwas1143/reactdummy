@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './ExpenseForm.css';
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
     const [enteredTitle , setenteredTitle] = useState('');
     const[enteredAmount, setenteredAmount] =useState('');
     const[enteredDate, setenteredDate] =useState('');
@@ -42,23 +42,28 @@ const ExpenseForm = () => {
             amount:enteredAmount,
             date:new Date(enteredDate)
         };
-        console.log(expenseData);
+        // console.log(expenseData);
+        props.onSaveExpenseData(expenseData);
+        setenteredTitle('');
+        setenteredAmount('');
+        setenteredDate('');
+
     };
 
     return (
         <form onSubmit={submitHandler}>
             <div className="new-expense__controls">
-                <div className='new-expense__controls'>
+                <div className="new-expense__control">
                     <label>Title</label>
-                    <input type="text" onChange={titleChangeHandler} value={enteredTitle} />
+                    <input type="text" value={enteredTitle} onChange={titleChangeHandler} />
                 </div>
-                <div className='new-expense__control'>
+                <div className="new-expense__control">
                     <label>Amount</label>
-                    <input type="number" onChange={enteredAmount} />
+                    <input type="number" value={enteredAmount} onChange={amountChangeHandler} />
                 </div>
-                <div className='new-expense__control'>
+                <div className="new-expense__control">
                     <label>Date</label>
-                    <input type="date" min="2019-01-01" max="2024-12-31" onChange={dateChangeHandler} value={ enteredDate} />
+                    <input type="date" value={enteredDate} min="2019-01-01" max="2024-12-31" onChange={dateChangeHandler} />
                 </div>
             </div>
             <div className="new-expense__actions">
